@@ -14,32 +14,34 @@ const Contact = () => {
     {
       icon: '📧',
       title: 'Email',
-      value: 'rgopinathreddyreddyvari143@gmail.com',
+      value: 'ajaykarmpudu@gmail.com',
       description: 'Send me a message anytime',
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
+      link: 'mailto:ajaykarmpudu@gmail.com'
     },
     {
       icon: '📱',
       title: 'Phone',
-      value: '+91 8247392437',
+      value: '+91 9100397118',
       description: 'Available during business hours',
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-green-500 to-emerald-500',
+      link: 'https://wa.me/919100397118'
     },
     {
-      icon: '💼',
+      icon: '/LinkedIn logo.jpeg',
       title: 'LinkedIn',
-      value: 'linkedin.com/in/r-gopinathreddy-reddyvari-8a0a1a324',
+      value: 'linkedin.com/in/ajay-karampudi-782bb3305',
       description: 'Connect professionally',
       color: 'from-purple-500 to-pink-500',
-      link: 'https://www.linkedin.com/in/r-gopinathreddy-reddyvari-8a0a1a324?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BAM3vDe6rSOaIYRss%2FY%2F%2BxA%3D%3D'
+      link: 'https://www.linkedin.com/in/ajay-karampudi-782bb3305/'
     },
     {
-      icon: '🐙',
+      icon: '/Github Pic.png',
       title: 'GitHub',
-      value: 'github.com/Rgopi143',
+      value: 'github.com/ajaykarampudi',
       description: 'Check out my code',
       color: 'from-gray-700 to-gray-900',
-      link: 'https://github.com/Rgopi143'
+      link: 'https://github.com/ajaykarampudi'
     }
   ];
 
@@ -54,7 +56,7 @@ const Contact = () => {
     // Redirect to email client with pre-filled subject and body
     const subject = encodeURIComponent(formData.subject || 'Portfolio Contact');
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:rgopinathreddyreddyvari143@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:ajaykarmpudu@gmail.com?subject=${subject}&body=${body}`;
     
     // Open email client
     window.location.href = mailtoLink;
@@ -91,7 +93,7 @@ const Contact = () => {
 
               {/* Contact Methods */}
               <div className="space-y-6">
-                {contactMethods.map((method, index) => (
+                {contactMethods.map((method) => (
                   method.title === 'LinkedIn' ? (
                     <a
                       key={method.title}
@@ -103,7 +105,7 @@ const Contact = () => {
                     >
                       <div className="flex items-start space-x-4">
                         <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-2xl`}>
-                          {method.icon}
+                          <img src={method.icon} alt={method.title} className="w-12 h-12 rounded-lg" />
                         </div>
                         <div className="flex-1">
                           <h4 className="text-xl font-bold mb-2">{method.title}</h4>
@@ -120,7 +122,7 @@ const Contact = () => {
                       style={{ textDecoration: 'none' }}
                     >
                       <div className="flex items-start space-x-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-2xl`}>
+                        <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-3xl`}>
                           {method.icon}
                         </div>
                         <div className="flex-1">
@@ -133,14 +135,14 @@ const Contact = () => {
                   ) : method.title === 'Phone' ? (
                     <a
                       key={method.title}
-                      href={`https://wa.me/918247392437`}
+                      href={`https://wa.me/919100397118`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
                       style={{ textDecoration: 'none' }}
                     >
                       <div className="flex items-start space-x-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-2xl`}>
+                        <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-3xl`}>
                           {method.icon}
                         </div>
                         <div className="flex-1">
@@ -161,7 +163,7 @@ const Contact = () => {
                     >
                       <div className="flex items-start space-x-4">
                         <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-2xl`}>
-                          {method.icon}
+                          <img src={method.icon} alt={method.title} className="w-12 h-12 rounded-lg" />
                         </div>
                         <div className="flex-1">
                           <h4 className="text-xl font-bold mb-2">{method.title}</h4>

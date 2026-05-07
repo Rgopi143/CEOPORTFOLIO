@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const filters = [
     { id: 'all', label: 'All Projects', icon: '🌟' },
@@ -18,72 +17,66 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       category: 'web',
       description: 'Full-stack e-commerce solution with React, Node.js, and Stripe integration',
-      image: '🛒',
+      image: '/E-commerse .png',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
-      stats: { users: '10K+', revenue: '$50K+', rating: 4.8 }
     },
     {
       id: 'ai-chat',
       title: 'AI Chat Assistant',
       category: 'ai',
       description: 'Intelligent chatbot powered by OpenAI GPT-4 with real-time conversation',
-      image: '💬',
+      image: '/Ai Chat assitant.png',
       technologies: ['Python', 'OpenAI', 'React', 'FastAPI'],
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
-      stats: { users: '5K+', conversations: '100K+', rating: 4.9 }
     },
     {
       id: 'fitness-app',
       title: 'Fitness Tracker',
       category: 'mobile',
       description: 'Cross-platform mobile app for workout tracking and health monitoring',
-      image: '💪',
+      image: '/Fitness tracker.png',
       technologies: ['React Native', 'Firebase', 'Redux', 'Expo'],
       liveUrl: '#',
       githubUrl: '#',
       featured: false,
-      stats: { users: '2K+', workouts: '50K+', rating: 4.7 }
     },
     {
       id: 'dashboard',
       title: 'Analytics Dashboard',
       category: 'web',
       description: 'Real-time data visualization dashboard with interactive charts and reports',
-      image: '📊',
+      image: '/analytics dashboard.png',
       technologies: ['Vue.js', 'D3.js', 'Node.js', 'PostgreSQL'],
       liveUrl: '#',
       githubUrl: '#',
       featured: false,
-      stats: { users: '1K+', dataPoints: '1M+', rating: 4.6 }
     },
     {
       id: 'design-system',
       title: 'Design System',
       category: 'design',
       description: 'Comprehensive design system with reusable components and guidelines',
-      image: '🎨',
+      image: '/Design system.png',
       technologies: ['Figma', 'Storybook', 'React', 'TypeScript'],
       liveUrl: '#',
       githubUrl: '#',
       featured: false,
-      stats: { components: '50+', downloads: '5K+', rating: 4.8 }
     },
     {
       id: 'blockchain',
       title: 'DeFi Platform',
       category: 'web',
       description: 'Decentralized finance platform with smart contracts and yield farming',
-      image: '⛓️',
+      image: '/Defi platform.png',
       technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum'],
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
-      stats: { users: '3K+', volume: '$100K+', rating: 4.5 }
     }
   ];
 
@@ -129,11 +122,7 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className={`group relative bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-105 ${
-                hoveredProject === project.id ? 'ring-4 ring-purple-500/20' : ''
-              }`}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:scale-105"
             >
               {/* Featured Badge */}
               {project.featured && (
@@ -146,7 +135,15 @@ const Projects = () => {
 
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
-                <span className="text-6xl">{project.image}</span>
+                {project.image.startsWith('http') || project.image.startsWith('/') ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                ) : (
+                  <span className="text-6xl">{project.image}</span>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
@@ -155,10 +152,10 @@ const Projects = () => {
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
                   <div className="flex space-x-2">
-                    <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors duration-300">
+                    <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-500 hover:text-white hover:scale-110 transition-colors duration-300">
                       🔗
                     </button>
-                    <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors duration-300">
+                    <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-800 hover:text-white hover:scale-110 transition-colors duration-300">
                       📁
                     </button>
                   </div>
@@ -182,7 +179,7 @@ const Projects = () => {
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
-                  {Object.entries(project.stats).map(([key, value]) => (
+                  {project.stats && Object.entries(project.stats).map(([key, value]) => (
                     <div key={key} className="text-center">
                       <div className="text-lg font-bold text-gray-900">{value}</div>
                       <div className="text-xs text-gray-500 capitalize">{key}</div>
@@ -192,7 +189,7 @@ const Projects = () => {
               </div>
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-2xl"></div>
             </div>
           ))}
         </div>

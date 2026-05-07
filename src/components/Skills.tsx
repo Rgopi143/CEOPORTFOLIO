@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -13,31 +13,27 @@ const Skills = () => {
 
   const skills = {
     frontend: [
-      { name: 'React', level: 95, icon: '⚛️', description: 'Advanced React with hooks, context, and performance optimization' },
-      { name: 'TypeScript', level: 90, icon: '📘', description: 'Strong typing and advanced TypeScript patterns' },
-      { name: 'Tailwind CSS', level: 92, icon: '🎨', description: 'Utility-first CSS framework for rapid UI development' }
+      { name: 'HTML', level: 95, icon: '🌐', description: 'Semantic HTML5 markup and accessibility standards' },
+      { name: 'CSS', level: 90, icon: '🎨', description: 'Modern CSS with flexbox, grid, and animations' },
+      { name: 'JavaScript', level: 88, icon: '⚡', description: 'ES6+ features and DOM manipulation' }
     ],
     backend: [
-      { name: 'Node.js', level: 92, icon: '🟢', description: 'Server-side JavaScript with Express and Fastify' },
-      { name: 'Python', level: 88, icon: '🐍', description: 'Django, Flask, and FastAPI development' },
-      { name: 'Java', level: 85, icon: '☕', description: 'Spring Boot and enterprise application development' },
-      { name: 'PHP', level: 82, icon: '🐘', description: 'Laravel and WordPress development' }
+      { name: 'Node.js', level: 85, icon: '🟢', description: 'Server-side JavaScript runtime environment' },
+      { name: 'Express.js', level: 80, icon: '�', description: 'Fast, unopinionated web framework for Node.js' },
+      { name: 'REST APIs', level: 88, icon: '🔗', description: 'Design and development of RESTful services' },
+      { name: 'Authentication', level: 82, icon: '�', description: 'JWT, OAuth, and session management' }
     ],
     database: [
-      { name: 'PostgreSQL', level: 90, icon: '🐘', description: 'Advanced SQL and database optimization' },
-      { name: 'MongoDB', level: 88, icon: '🍃', description: 'NoSQL database with aggregation pipelines' },
-      { name: 'Redis', level: 85, icon: '🔴', description: 'In-memory data structure store' },
-      { name: 'MySQL', level: 87, icon: '🐬', description: 'Relational database management system' },
-      { name: 'Elasticsearch', level: 80, icon: '🔍', description: 'Search and analytics engine' },
-      { name: 'GraphQL', level: 85, icon: '📊', description: 'Query language and runtime for APIs' }
+      { name: 'SQL', level: 90, icon: '�️', description: 'Structured Query Language for database operations' },
+      { name: 'MySQL', level: 85, icon: '🐬', description: 'Popular relational database management system' },
+      { name: 'MongoDB', level: 80, icon: '🍃', description: 'NoSQL document database for flexible data storage' },
+      { name: 'Database Design', level: 82, icon: '🏗️', description: 'Schema design and normalization principles' }
     ],
     tools: [
-      { name: 'Docker', level: 88, icon: '🐳', description: 'Containerization and orchestration' },
-      { name: 'AWS', level: 85, icon: '☁️', description: 'Cloud infrastructure and services' },
-      { name: 'Git', level: 92, icon: '📝', description: 'Version control and collaboration' },
-      { name: 'CI/CD', level: 87, icon: '🔄', description: 'Jenkins, GitHub Actions, and GitLab CI' },
-      { name: 'Kubernetes', level: 80, icon: '⚓', description: 'Container orchestration platform' },
-      { name: 'Terraform', level: 78, icon: '🏗️', description: 'Infrastructure as code' }
+      { name: 'Git', level: 90, icon: '�', description: 'Version control and collaboration' },
+      { name: 'VS Code', level: 92, icon: '💻', description: 'Code editor and development environment' },
+      { name: 'Terminal', level: 85, icon: '⌨️', description: 'Command line interface and shell scripting' },
+      { name: 'Debugging', level: 88, icon: '🔍', description: 'Troubleshooting and problem-solving techniques' }
     ]
   };
 
@@ -93,7 +89,11 @@ const Skills = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{skill.icon}</span>
+                  {skill.icon.startsWith('/') ? (
+                    <img src={skill.icon} alt={skill.name} className="w-8 h-8" />
+                  ) : (
+                    <span className="text-2xl">{skill.icon}</span>
+                  )}
                   <h3 className="text-xl font-bold text-white">{skill.name}</h3>
                 </div>
                 <div className="text-right">

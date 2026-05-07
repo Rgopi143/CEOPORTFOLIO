@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -33,7 +31,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-xl lg:text-2xl font-bold text-white">
-              R. GOPINATH REDDY
+              KARAMPUDI AJAY
             </h1>
           </div>
 
@@ -70,86 +68,14 @@ const Navigation = () => {
               Contact
             </button>
             <a
-              href="mailto:rgopinathreddyreddyvari143@gmail.com"
+              href="mailto:ajaykarmpudu@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ajay,%0A%0AI'm%20interested%20in%20discussing%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards"
               className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105"
             >
               Hire Me
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:text-blue-400 transition-colors duration-300"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-gray-900/95 backdrop-blur-md border-t border-white/10">
-            <div className="px-4 py-4 space-y-4">
-              <button
-                onClick={() => scrollToSection('hero')}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection('skills')}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-              >
-                Skills
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-              >
-                Contact
-              </button>
-              <a
-                href="mailto:rgopinathreddyreddyvari143@gmail.com"
-                className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
-              >
-                Hire Me
-              </a>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

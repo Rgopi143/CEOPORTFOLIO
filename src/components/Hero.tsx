@@ -68,17 +68,17 @@ const Hero = () => {
             {/* Main Heading */}
             <div className="order-1 lg:order-1 text-center lg:text-left">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight text-white tracking-wider bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent drop-shadow-2xl">
-                R GOPINATH REDDY
+                 KARAMPUDI AJAY
               </h1>
             </div>
 
             {/* Profile Photo */}
-            <div className="relative order-2 lg:order-2">
-              <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl bg-black">
+            <div className="relative order-2 lg:order-2 ml-0.5 mt-8">
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl bg-white">
                 <img
-                  src="https://ik.imagekit.io/hgirrih1k/My%20New%20Image.webp?updatedAt=1754487287244"
-                  alt="R. GOPINATH REDDY"
-                  className="w-full h-full object-cover scale-125"
+                  src="/Ajay Karampudi Profile Pic.jpeg"
+                  alt="KARAMPUDI AJAY"
+                  className="w-full h-full object-cover scale-100"
                 />
               </div>
             </div>
