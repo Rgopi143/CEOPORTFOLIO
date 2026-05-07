@@ -4,10 +4,14 @@ import { Menu, X } from 'lucide-react';
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isScrolled, setIsScrolled] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Check if scrolled for glass effect
+      setIsScrolled(window.scrollY > 50);
+      
       const sections = ['hero', 'about', 'skills', 'projects', 'connect'];
       const scrollPosition = window.scrollY + 100;
 
@@ -72,23 +76,43 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-lg' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-slate-800">
-            Portfolio
+          <div className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+            activeSection === 'projects' || activeSection === 'connect'
+              ? 'bg-white/90 backdrop-blur-sm shadow-lg border border-gray-200'
+              : isScrolled 
+                ? 'bg-white/10 backdrop-blur-sm shadow-lg border border-white/20'
+                : 'bg-white/90 backdrop-blur-sm shadow-lg border border-gray-200'
+          }`}>
+            <h1 className={`text-2xl font-bold text-black transition-colors duration-300`}>
+              R GOPINATH REDDY
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 bg-black/20 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-blue-600 relative ${
-                  activeSection === item.id 
-                    ? 'text-blue-600' 
-                    : 'text-gray-700 hover:text-blue-600'
+                className={`text-sm font-medium transition-all duration-200 relative px-4 py-2 rounded-lg ${
+                  activeSection === 'projects' || activeSection === 'connect'
+                    ? (activeSection === item.id 
+                      ? 'text-black bg-white/90 shadow-md border border-gray-300' 
+                      : 'text-gray-800 hover:text-black bg-white/70 hover:bg-white/90 border border-gray-200')
+                    : isScrolled 
+                      ? (activeSection === item.id 
+                        ? 'text-blue-400 bg-blue-500/20 shadow-md border border-blue-400/30' 
+                        : 'text-white hover:text-blue-400 bg-white/10 hover:bg-white/20 border border-white/20')
+                      : (activeSection === item.id 
+                        ? 'text-blue-600 bg-blue-100 shadow-md border border-blue-300' 
+                        : 'text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 border border-gray-300')
                 }`}
                 aria-label={`Navigate to ${item.label} section`}
               >
@@ -113,7 +137,13 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
+              activeSection === 'projects' || activeSection === 'connect'
+                ? 'hover:bg-gray-100 text-black' 
+                : isScrolled 
+                  ? 'hover:bg-white/10 text-white' 
+                  : 'hover:bg-gray-100 text-gray-800'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -124,7 +154,7 @@ const Header: React.FC = () => {
                   {/* Mobile Navigation */}
         {isOpen && (
           <div ref={mobileMenuRef} className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
-            <nav className="px-4 py-4 space-y-2">
+            <nav className="px-4 py-4 space-y-2 bg-black/20 backdrop-blur-md rounded-2xl border border-white/10 mx-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}

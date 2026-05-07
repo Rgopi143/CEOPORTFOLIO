@@ -11,37 +11,37 @@ const Contact = () => {
   const [activeField, setActiveField] = useState<string | null>(null);
 
   const contactMethods = [
-    {
+    { 
       icon: '📧',
       title: 'Email',
-      value: 'ajaykarmpudu@gmail.com',
+      value: 'rgopinathreddyreddyvari143@gmail.com',
       description: 'Send me a message anytime',
       color: 'from-blue-500 to-cyan-500',
-      link: 'mailto:ajaykarmpudu@gmail.com'
+      link: 'mailto:rgopinathreddyreddyvari143@gmail.com'
     },
     {
       icon: '📱',
       title: 'Phone',
-      value: '+91 9100397118',
+      value: '+91 8247392437',
       description: 'Available during business hours',
       color: 'from-green-500 to-emerald-500',
-      link: 'https://wa.me/919100397118'
+      link: 'https://wa.me/918247392437'
     },
     {
       icon: '/LinkedIn logo.jpeg',
       title: 'LinkedIn',
-      value: 'linkedin.com/in/ajay-karampudi-782bb3305',
+      value: 'linkedin.com/in/r-gopinathreddy-reddyvari-8a0a1a324/',
       description: 'Connect professionally',
       color: 'from-purple-500 to-pink-500',
-      link: 'https://www.linkedin.com/in/ajay-karampudi-782bb3305/'
+      link: 'https://www.linkedin.com/in/r-gopinathreddy-reddyvari-8a0a1a324/'
     },
     {
       icon: '/Github Pic.png',
       title: 'GitHub',
-      value: 'github.com/ajaykarampudi',
+      value: 'github.com/Rgopi143',
       description: 'Check out my code',
       color: 'from-gray-700 to-gray-900',
-      link: 'https://github.com/ajaykarampudi'
+      link: 'https://github.com/Rgopi143'
     }
   ];
 
@@ -53,13 +53,21 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Redirect to email client with pre-filled subject and body
-    const subject = encodeURIComponent(formData.subject || 'Portfolio Contact');
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:ajaykarmpudu@gmail.com?subject=${subject}&body=${body}`;
+    // Create WhatsApp message with form data
+    const whatsappMessage = encodeURIComponent(
+      `👋 Hello! I'm reaching out from your portfolio.\n\n` +
+      `📝 *Name:* ${formData.name}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📌 *Subject:* ${formData.subject || 'Portfolio Contact'}\n\n` +
+      `💬 *Message:*\n${formData.message}\n\n` +
+      `Looking forward to connecting with you!`
+    );
     
-    // Open email client
-    window.location.href = mailtoLink;
+    // Redirect to WhatsApp with pre-filled message
+    const whatsappLink = `https://wa.me/918247392437?text=${whatsappMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappLink, '_blank');
     
     setIsSubmitting(false);
     // Reset form
@@ -67,8 +75,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="connect" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
-      <div className="container mx-auto px-4">
+    <section id="connect" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-purple-900/50"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-indigo-200 bg-clip-text text-transparent">

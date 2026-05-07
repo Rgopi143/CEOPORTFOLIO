@@ -85,11 +85,14 @@ const Projects = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-100/30 via-transparent to-purple-100/30"></div>
+      <div className="absolute top-10 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl"></div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent drop-shadow-lg">
             Featured Projects
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -168,22 +171,12 @@ const Projects = () => {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
-                                         <span
-                       key={tech}
-                       className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-medium rounded-full"
-                     >
-                       {tech}
-                     </span>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
-                  {project.stats && Object.entries(project.stats).map(([key, value]) => (
-                    <div key={key} className="text-center">
-                      <div className="text-lg font-bold text-gray-900">{value}</div>
-                      <div className="text-xs text-gray-500 capitalize">{key}</div>
-                    </div>
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-medium rounded-full"
+                    >
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -202,12 +195,18 @@ const Projects = () => {
               Let's collaborate to bring your ideas to life with cutting-edge technology
             </p>
             <div className="flex justify-center space-x-4">
-                             <button className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors duration-300">
-                 View All Projects
-               </button>
-               <button className="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-600 transition-colors duration-300">
-                 Get In Touch
-               </button>
+              <button 
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors duration-300 hover:scale-105 transform"
+              >
+                View All Projects
+              </button>
+              <button 
+                onClick={() => window.open('mailto:rgopinathreddyreddyvari143@gmail.com', '_blank')}
+                className="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-600 transition-colors duration-300"
+              >
+                Get In Touch
+              </button>
             </div>
           </div>
         </div>

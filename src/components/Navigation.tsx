@@ -1,17 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+const Navigation: React.FC = () => {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -21,17 +10,13 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-gray-900/95 backdrop-blur-md border-b border-white/10' 
-        : 'bg-transparent'
-    }`}>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-xl lg:text-2xl font-bold text-white">
-              KARAMPUDI AJAY
+              R GOPINATH REDDY
             </h1>
           </div>
 
@@ -62,13 +47,13 @@ const Navigation = () => {
               Projects
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('connect')}
               className="text-gray-300 hover:text-white transition-colors duration-300 font-medium"
             >
               Contact
             </button>
             <a
-              href="mailto:ajaykarmpudu@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ajay,%0A%0AI'm%20interested%20in%20discussing%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards"
+              href="mailto:rgopinathreddyreddyvari143@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Gopinath,%0A%0AI'm%20interested%20in%20discussing%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards"
               className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105"
             >
               Hire Me
