@@ -17,7 +17,7 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       category: 'web',
       description: 'Full-stack e-commerce solution with React, Node.js, and Stripe integration',
-      image: '/E-commerse .png',
+      image: '/ecommerce.png',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       liveUrl: '#',
       githubUrl: '#',
@@ -28,7 +28,7 @@ const Projects = () => {
       title: 'AI Chat Assistant',
       category: 'ai',
       description: 'Intelligent chatbot powered by OpenAI GPT-4 with real-time conversation',
-      image: '/Ai Chat assitant.png',
+      image: '/ai-chat.png',
       technologies: ['Python', 'OpenAI', 'React', 'FastAPI'],
       liveUrl: '#',
       githubUrl: '#',
@@ -39,7 +39,7 @@ const Projects = () => {
       title: 'Fitness Tracker',
       category: 'mobile',
       description: 'Cross-platform mobile app for workout tracking and health monitoring',
-      image: '/Fitness tracker.png',
+      image: '/fitness-tracker.png',
       technologies: ['React Native', 'Firebase', 'Redux', 'Expo'],
       liveUrl: '#',
       githubUrl: '#',
@@ -50,7 +50,7 @@ const Projects = () => {
       title: 'Analytics Dashboard',
       category: 'web',
       description: 'Real-time data visualization dashboard with interactive charts and reports',
-      image: '/analytics dashboard.png',
+      image: '/analytics-dashboard.png',
       technologies: ['Vue.js', 'D3.js', 'Node.js', 'PostgreSQL'],
       liveUrl: '#',
       githubUrl: '#',
@@ -61,7 +61,7 @@ const Projects = () => {
       title: 'Design System',
       category: 'design',
       description: 'Comprehensive design system with reusable components and guidelines',
-      image: '/Design system.png',
+      image: '/design-system.png',
       technologies: ['Figma', 'Storybook', 'React', 'TypeScript'],
       liveUrl: '#',
       githubUrl: '#',
@@ -72,7 +72,7 @@ const Projects = () => {
       title: 'DeFi Platform',
       category: 'web',
       description: 'Decentralized finance platform with smart contracts and yield farming',
-      image: '/Defi platform.png',
+      image: '/defi-platform.png',
       technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum'],
       liveUrl: '#',
       githubUrl: '#',
@@ -137,17 +137,18 @@ const Projects = () => {
               )}
 
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
+              <div className="relative h-52 bg-slate-100 border-b border-slate-200/80 overflow-hidden flex items-center justify-center">
                 {project.image.startsWith('http') || project.image.startsWith('/') ? (
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
                 ) : (
                   <span className="text-6xl">{project.image}</span>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
               {/* Project Content */}

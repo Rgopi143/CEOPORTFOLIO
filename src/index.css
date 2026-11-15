@@ -143,20 +143,14 @@
 @keyframes grow-2-2 { from { width: 0; } }
 @keyframes grow-2-3 { from { width: 0; } }
 
-/* Custom scrollbar */
+/* Hide scrollbar */
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  display: none;
+  width: 0;
+  height: 0;
 }
