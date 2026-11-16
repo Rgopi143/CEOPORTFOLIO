@@ -1,6 +1,11 @@
 import { useEffect, useState, useMemo } from 'react';
+import { Menu } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  onOpenMobileMenu?: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isBadgeHovered, setIsBadgeHovered] = useState(false);
@@ -98,13 +103,24 @@ const Hero = () => {
               onMouseEnter={() => setIsHeadingHovered(true)}
               onMouseLeave={() => setIsHeadingHovered(false)}
             >
-              <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent transition-all duration-300 cursor-pointer ${
-                isHeadingHovered ? 'scale-102' : ''
-              }`}>
-                 <span>R</span>
-                 <span className="text-blue-700"> GOPINATH </span>
-                 <span className="text-indigo-800"> REDDY</span>
-              </h1>
+              <div className="inline-flex items-center justify-center lg:justify-start gap-2.5 sm:gap-4">
+                <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent transition-all duration-300 cursor-pointer ${
+                  isHeadingHovered ? 'scale-102' : ''
+                }`}>
+                   <span>R</span>
+                   <span className="text-blue-700"> GOPINATH </span>
+                   <span className="text-indigo-800"> REDDY</span>
+                </h1>
+
+                {/* 3 lines menu button beside the name on mobile */}
+                <button
+                  onClick={onOpenMobileMenu}
+                  className="lg:hidden p-2 text-slate-700 hover:text-blue-600 rounded-xl hover:bg-blue-50/70 transition-colors shrink-0"
+                  aria-label="Open menu"
+                >
+                  <Menu size={28} />
+                </button>
+              </div>
             </div>
 
             {/* Profile Photo */}
