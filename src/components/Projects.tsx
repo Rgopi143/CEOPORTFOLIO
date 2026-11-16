@@ -4,11 +4,12 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filters = [
-    { id: 'all', label: 'All Projects', icon: '🌟' },
+    { id: 'all', label: 'All', icon: '🌟' },
     { id: 'web', label: 'Web Apps', icon: '🌐' },
     { id: 'mobile', label: 'Mobile Apps', icon: '📱' },
-    { id: 'ai', label: 'AI/ML', icon: '🤖' },
-    { id: 'design', label: 'UI/UX', icon: '🎨' }
+    { id: 'aiml', label: 'AIML', icon: '🤖' },
+    { id: 'uiux', label: 'UI/UX', icon: '🎨' },
+    { id: 'hardware', label: 'Hardware', icon: '⚡' }
   ];
 
   const projects = [
@@ -26,7 +27,7 @@ const Projects = () => {
     {
       id: 'ai-chat',
       title: 'AI Chat Assistant',
-      category: 'ai',
+      category: 'aiml',
       description: 'Intelligent chatbot powered by OpenAI GPT-4 with real-time conversation',
       image: '/ai-chat.png',
       technologies: ['Python', 'OpenAI', 'React', 'FastAPI'],
@@ -59,7 +60,7 @@ const Projects = () => {
     {
       id: 'design-system',
       title: 'Design System',
-      category: 'design',
+      category: 'uiux',
       description: 'Comprehensive design system with reusable components and guidelines',
       image: '/design-system.png',
       technologies: ['Figma', 'Storybook', 'React', 'TypeScript'],
@@ -77,6 +78,17 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
+    },
+    {
+      id: 'iot-smart-system',
+      title: 'Smart IoT Controller',
+      category: 'hardware',
+      description: 'Embedded IoT monitoring system with microcontrollers, sensor telemetry, and automation',
+      image: '/analytics-dashboard.png',
+      technologies: ['ESP32', 'Arduino', 'C++', 'MQTT', 'Raspberry Pi'],
+      liveUrl: '#',
+      githubUrl: '#',
+      featured: false,
     }
   ];
 
@@ -91,30 +103,30 @@ const Projects = () => {
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl"></div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent drop-shadow-lg">
+        <div className="text-center mb-8 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             Showcasing innovative solutions that solve real-world problems
           </p>
         </div>
 
         {/* Filter Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-100">
+        <div className="flex justify-center mb-8 sm:mb-12 px-2">
+          <div className="bg-white rounded-2xl p-1.5 sm:p-2 shadow-sm border border-gray-200 flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-full">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                   activeFilter === filter.id
-                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-105'
-                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                 }`}
+                className={`px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 flex items-center space-x-1 sm:space-x-1.5 whitespace-nowrap ${
+                  activeFilter === filter.id
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 scale-102 sm:scale-105'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
               >
-                <span className="mr-2">{filter.icon}</span>
-                {filter.label}
+                <span>{filter.icon}</span>
+                <span>{filter.label}</span>
               </button>
             ))}
           </div>
