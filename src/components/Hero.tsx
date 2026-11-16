@@ -103,8 +103,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
               onMouseEnter={() => setIsHeadingHovered(true)}
               onMouseLeave={() => setIsHeadingHovered(false)}
             >
-              <div className="inline-flex items-center justify-center lg:justify-start gap-2.5 sm:gap-4">
-                <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent transition-all duration-300 cursor-pointer ${
+              <div className="inline-flex items-center justify-center lg:justify-start gap-2 sm:gap-4">
+                <h1 className={`text-2xl sm:text-5xl lg:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent transition-all duration-300 cursor-pointer ${
                   isHeadingHovered ? 'scale-102' : ''
                 }`}>
                    <span>R</span>
@@ -115,10 +115,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
                 {/* 3 lines menu button beside the name on mobile */}
                 <button
                   onClick={onOpenMobileMenu}
-                  className="lg:hidden p-2 text-slate-700 hover:text-blue-600 rounded-xl hover:bg-blue-50/70 transition-colors shrink-0"
+                  className="lg:hidden p-1.5 text-slate-700 hover:text-blue-600 rounded-xl hover:bg-blue-50/70 transition-colors shrink-0"
                   aria-label="Open menu"
                 >
-                  <Menu size={28} />
+                  <Menu size={24} />
                 </button>
               </div>
             </div>
@@ -149,7 +149,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
           </div>
 
           {/* Subtitle */}
-          <p className={`text-lg sm:text-xl lg:text-2xl mb-12 text-slate-600 leading-relaxed max-w-4xl mx-auto transition-all duration-1000 delay-700 ${
+          <p className={`text-sm sm:text-lg lg:text-2xl mb-8 sm:mb-12 text-slate-600 leading-relaxed max-w-4xl mx-auto px-2 transition-all duration-1000 delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             Crafting digital experiences that blend{' '}

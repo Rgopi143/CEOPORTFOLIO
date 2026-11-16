@@ -111,29 +111,29 @@ const About: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-xl text-slate-600 max-w-3xl mx-auto px-2">
             Passionate developer crafting digital experiences that make a difference
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-sm border border-slate-200 flex flex-wrap justify-center gap-2">
+        {/* Tab Navigation - In one line side by side */}
+        <div className="flex justify-center mb-8 sm:mb-12 px-2">
+          <div className="bg-white rounded-2xl p-1.5 sm:p-2 shadow-sm border border-slate-200 flex flex-row items-center justify-center gap-1 sm:gap-2 max-w-full">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
+                className={`px-3 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm md:text-base whitespace-nowrap ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 scale-105'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 scale-102 sm:scale-105'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                <span className="text-xl">{tab.icon}</span>
+                <span className="text-sm sm:text-xl">{tab.icon}</span>
                 <span>{tab.label}</span>
               </button>
             ))}
@@ -144,38 +144,38 @@ const About: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           {/* 1. STORY */}
           {activeTab === 'story' && (
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in">
               {/* Intro banner */}
-              <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-sm">
-                <div className="flex items-center space-x-3 mb-4 text-blue-600">
-                  <Sparkles className="w-6 h-6 animate-pulse" />
-                  <span className="text-sm uppercase tracking-wider font-bold">The Story Behind the Code</span>
+              <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-3 text-blue-600">
+                  <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 animate-pulse" />
+                  <span className="text-xs sm:text-sm uppercase tracking-wider font-bold">The Story Behind the Code</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-slate-900 mb-3">
                   Driven by curiosity, fueled by innovation
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
                   From childhood curiosity to professional passion, my journey in technology has been driven by an insatiable desire to create, solve problems, and build software that empowers people worldwide.
                 </p>
               </div>
 
               {/* Story milestones grid */}
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 {storyDetails.map((item) => (
                   <div
                     key={item.step}
-                    className="group bg-white hover:bg-blue-50/40 border border-slate-200 hover:border-blue-400 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                    className="group bg-white hover:bg-blue-50/40 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-lg sm:text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                         {item.step}
                       </span>
-                      <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h4 className="text-base sm:text-xl font-bold text-slate-900 mb-1.5 group-hover:text-blue-600 transition-colors">
                       {item.title}
                     </h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       {item.text}
                     </p>
                   </div>
@@ -186,31 +186,31 @@ const About: React.FC = () => {
 
           {/* 2. VALUES */}
           {activeTab === 'values' && (
-            <div className="space-y-8 animate-fade-in">
-              <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-sm">
-                <div className="flex items-center space-x-3 mb-4 text-purple-600">
-                  <CheckCircle2 className="w-6 h-6" />
-                  <span className="text-sm uppercase tracking-wider font-bold">Guiding Principles</span>
+            <div className="space-y-6 sm:space-y-8 animate-fade-in">
+              <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-3 text-purple-600">
+                  <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6" />
+                  <span className="text-xs sm:text-sm uppercase tracking-wider font-bold">Guiding Principles</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-slate-900 mb-3">
                   What Drives Me Forward
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
                   My core values shape every project I undertake, every architecture I design, and every line of code I ship.
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {valuesDetails.map((val) => (
                   <div
                     key={val.title}
-                    className="relative group bg-white hover:bg-purple-50/40 border border-slate-200 hover:border-purple-400 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md overflow-hidden"
+                    className="relative group bg-white hover:bg-purple-50/40 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md overflow-hidden"
                   >
-                    <div className={`w-12 h-1.5 rounded-full bg-gradient-to-r ${val.color} mb-5`}></div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">
+                    <div className={`w-10 sm:w-12 h-1.5 rounded-full bg-gradient-to-r ${val.color} mb-3 sm:mb-5`}></div>
+                    <h4 className="text-base sm:text-xl font-bold text-slate-900 mb-1.5 group-hover:text-purple-600 transition-colors">
                       {val.title}
                     </h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       {val.desc}
                     </p>
                   </div>
@@ -221,38 +221,38 @@ const About: React.FC = () => {
 
           {/* 3. JOURNEY */}
           {activeTab === 'journey' && (
-            <div className="space-y-8 animate-fade-in">
-              <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-sm">
-                <div className="flex items-center space-x-3 mb-4 text-emerald-600">
-                  <Calendar className="w-6 h-6" />
-                  <span className="text-sm uppercase tracking-wider font-bold">Career Milestones</span>
+            <div className="space-y-6 sm:space-y-8 animate-fade-in">
+              <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-3 text-emerald-600">
+                  <Calendar className="w-4 h-4 sm:w-6 sm:h-6" />
+                  <span className="text-xs sm:text-sm uppercase tracking-wider font-bold">Career Milestones</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-slate-900 mb-3">
                   The Path to Excellence
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
                   Every challenge overcome and every project completed has shaped the developer, problem solver, and tech leader I am today.
                 </p>
               </div>
 
               {/* Timeline */}
-              <div className="relative pl-6 md:pl-8 border-l-2 border-slate-300 space-y-8 ml-4 md:ml-6">
+              <div className="relative pl-5 sm:pl-8 border-l-2 border-slate-300 space-y-6 sm:space-y-8 ml-3 sm:ml-6">
                 {journeyDetails.map((item, index) => (
                   <div key={index} className="relative group">
                     {/* Node indicator */}
-                    <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white group-hover:bg-cyan-500 group-hover:scale-125 transition-all shadow-md"></div>
+                    <div className="absolute -left-[27px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-600 border-4 border-white group-hover:bg-cyan-500 group-hover:scale-125 transition-all shadow-md"></div>
 
                     {/* Timeline card */}
-                    <div className="bg-white hover:bg-emerald-50/40 border border-slate-200 hover:border-emerald-400 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                    <div className="bg-white hover:bg-emerald-50/40 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                        <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                           {item.year}
                         </span>
-                        <span className="text-sm font-bold text-emerald-700">
+                        <span className="text-xs sm:text-sm font-bold text-emerald-700">
                           {item.role}
                         </span>
                       </div>
-                      <p className="text-slate-600 text-sm leading-relaxed mt-2">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-1">
                         {item.desc}
                       </p>
                     </div>
@@ -263,13 +263,13 @@ const About: React.FC = () => {
           )}
 
           {/* Additional Skills */}
-          <div className="mt-16 text-center w-full">
-            <h3 className="text-2xl font-bold mb-6 text-slate-800">Additional Skills</h3>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <div className="mt-12 sm:mt-16 text-center w-full">
+            <h3 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 text-slate-800">Additional Skills</h3>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
               {additionalSkills.map((skill) => (
                 <div
                   key={skill}
-                  className="bg-white text-slate-700 px-6 py-3 rounded-full shadow-sm border border-slate-200 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all duration-300 hover:scale-105"
+                  className="bg-white text-slate-700 px-3.5 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm rounded-full shadow-sm border border-slate-200 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all duration-300 hover:scale-105"
                 >
                   <span className="font-semibold">{skill}</span>
                 </div>
