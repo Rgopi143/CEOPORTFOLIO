@@ -89,8 +89,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
+          {/* Contact Info - Hidden on mobile view */}
+          <div className="hidden sm:block">
             <h4 className="text-lg font-bold text-slate-900 mb-4">Contact Info</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
