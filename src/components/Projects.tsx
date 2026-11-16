@@ -201,22 +201,22 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-8 text-white shadow-2xl">
-            <h3 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h3>
-            <p className="text-xl mb-6 opacity-90">
+        <div className="mt-10 sm:mt-16 text-center px-2">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-xl max-w-3xl mx-auto">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">Ready to Start Your Project?</h3>
+            <p className="text-xs sm:text-base md:text-lg mb-4 sm:mb-6 opacity-90 leading-relaxed max-w-xl mx-auto">
               Let's collaborate to bring your ideas to life with cutting-edge technology
             </p>
-            <div className="flex justify-center space-x-4">
+            <div className="flex flex-row justify-center items-center gap-2.5 sm:gap-4">
               <button 
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors duration-300 hover:scale-105 transform"
+                className="bg-white text-blue-600 px-4 py-2.5 sm:px-8 sm:py-3 rounded-xl font-bold text-xs sm:text-base hover:bg-gray-100 transition-all duration-300 hover:scale-105 transform shadow-md whitespace-nowrap"
               >
                 View All Projects
               </button>
               <button 
                 onClick={() => window.open('mailto:rgopinathreddyreddyvari143@gmail.com', '_blank')}
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                className="border-2 border-white text-white px-4 py-2.5 sm:px-8 sm:py-3 rounded-xl font-bold text-xs sm:text-base hover:bg-white hover:text-blue-600 transition-all duration-300 whitespace-nowrap"
               >
                 Get In Touch
               </button>

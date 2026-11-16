@@ -66,46 +66,46 @@ const Skills = () => {
   }, [activeCategory]);
 
   return (
-    <section id="skills" className="py-20 bg-white text-slate-900 relative">
+    <section id="skills" className="py-12 sm:py-20 bg-white text-slate-900 relative">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${
+        <div className={`text-center mb-8 sm:mb-14 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}>
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto hover:text-slate-900 transition-colors duration-300">
+          <p className="text-sm sm:text-base md:text-xl text-slate-600 max-w-3xl mx-auto px-2 hover:text-slate-900 transition-colors duration-300">
             Mastering the tools and technologies that power modern web applications
           </p>
         </div>
 
-        {/* Category Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-slate-100 rounded-2xl p-2 border border-slate-200 shadow-sm flex flex-wrap justify-center gap-1">
+        {/* Category Navigation - One line side-by-side */}
+        <div className="flex justify-center mb-8 sm:mb-12 px-2">
+          <div className="bg-slate-100 rounded-2xl p-1.5 sm:p-2 border border-slate-200 shadow-sm flex flex-row items-center justify-center gap-1 sm:gap-2 max-w-full">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                className={`px-3 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 flex items-center space-x-1 sm:space-x-1.5 whitespace-nowrap ${
                   activeCategory === category.id
-                    ? `bg-gradient-to-r ${category.color} text-white shadow-md transform scale-105`
+                    ? `bg-gradient-to-r ${category.color} text-white shadow-md transform scale-102 sm:scale-105`
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
-                <span className="mr-2">{category.icon}</span>
-                {category.label}
+                <span className="text-sm sm:text-base">{category.icon}</span>
+                <span>{category.label}</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
           {skills[activeCategory as keyof typeof skills].map((skill, index) => (
             <div
               key={skill.name}
-              className={`group relative bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-500 cursor-pointer ${
+              className={`group relative bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-500 cursor-pointer ${
                 animatedSkills.includes(skill.name) ? 'animate-fade-in' : ''
               } ${
                 hoveredSkill === skill.name 
@@ -125,15 +125,15 @@ const Skills = () => {
               }}
               onMouseLeave={() => setHoveredSkill(null)}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <span className={`text-2xl transition-all duration-300 ${
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <span className={`text-xl sm:text-2xl transition-all duration-300 ${
                     hoveredSkill === skill.name ? 'scale-125 rotate-6' : 'scale-100'
                   }`}>{skill.icon}</span>
-                  <h3 className="text-xl font-bold text-slate-900">{skill.name}</h3>
+                  <h3 className="text-base sm:text-xl font-bold text-slate-900">{skill.name}</h3>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-black text-blue-600">{skill.level}%</div>
+                  <div className="text-xl sm:text-2xl font-black text-blue-600">{skill.level}%</div>
                   <div className="text-xs text-slate-400 font-medium">Proficiency</div>
                 </div>
               </div>
