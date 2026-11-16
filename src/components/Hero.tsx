@@ -68,9 +68,9 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-7xl mx-auto">
-          {/* Animated Badge */}
+          {/* Animated Badge - Hidden on mobile, visible on sm and up */}
           <div 
-            className={`inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-slate-200 shadow-sm mb-8 transition-all duration-1000 cursor-pointer group ${
+            className={`hidden sm:inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-slate-200 shadow-sm mb-8 transition-all duration-1000 cursor-pointer group ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
             } ${isBadgeHovered ? 'scale-105 shadow-md border-blue-300 bg-white' : 'hover:scale-102 hover:bg-white'}`}
             onMouseEnter={() => setIsBadgeHovered(true)}
