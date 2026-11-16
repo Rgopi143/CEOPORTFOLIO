@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
       <div className="absolute top-10 right-10 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-10 sm:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
@@ -72,8 +72,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
+          {/* Quick Links - Hidden on mobile view */}
+          <div className="hidden sm:block">
             <h4 className="text-lg font-bold text-slate-900 mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
