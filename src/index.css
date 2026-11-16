@@ -143,12 +143,13 @@
 @keyframes grow-2-2 { from { width: 0; } }
 @keyframes grow-2-3 { from { width: 0; } }
 
-/* Hide scrollbar */
-html, body {
+/* Hide scrollbar completely across all elements */
+html, body, * {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
+*::-webkit-scrollbar,
 ::-webkit-scrollbar {
   display: none;
   width: 0;
