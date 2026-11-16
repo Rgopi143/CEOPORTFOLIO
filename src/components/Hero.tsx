@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/50 text-slate-900 pt-20 pb-16">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/50 text-slate-900 pt-6 sm:pt-20 pb-12 sm:pb-16">
       {/* Animated Ambient Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-pulse"></div>
@@ -94,7 +94,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
           </div>
 
           {/* Profile Photo and Heading */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-14 mb-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-10 lg:gap-14 mb-8 sm:mb-10">
             {/* Main Heading */}
             <div 
               className={`order-1 text-center lg:text-left transition-all duration-1000 delay-300 ${
@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
               onMouseEnter={() => setIsHeadingHovered(true)}
               onMouseLeave={() => setIsHeadingHovered(false)}
             >
-              <div className="inline-flex items-center justify-center lg:justify-start gap-2 sm:gap-4">
+              <div className="inline-flex items-center justify-center lg:justify-start gap-5 sm:gap-6">
                 <h1 className={`text-2xl sm:text-5xl lg:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent transition-all duration-300 cursor-pointer ${
                   isHeadingHovered ? 'scale-102' : ''
                 }`}>
@@ -115,10 +115,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenMobileMenu }) => {
                 {/* 3 lines menu button beside the name on mobile */}
                 <button
                   onClick={onOpenMobileMenu}
-                  className="lg:hidden p-1.5 text-slate-700 hover:text-blue-600 rounded-xl hover:bg-blue-50/70 transition-colors shrink-0"
+                  className="lg:hidden p-2 text-slate-700 hover:text-blue-600 rounded-xl bg-slate-100/90 hover:bg-blue-50 border border-slate-200 shadow-sm transition-all active:scale-95 shrink-0"
                   aria-label="Open menu"
                 >
-                  <Menu size={24} />
+                  <Menu size={22} />
                 </button>
               </div>
             </div>
