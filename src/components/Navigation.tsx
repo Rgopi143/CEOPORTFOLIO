@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
+import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
   mobileMenuOpen: boolean;
@@ -13,39 +8,15 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
     };
 
-    const handleBeforeInstall = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e as BeforeInstallPromptEvent);
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleInstallClick = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        setDeferredPrompt(null);
-      }
-    } else {
-      alert("To install this app on your mobile device:\n\n• Android (Chrome / Edge): Tap the 3 dots menu (⋮) at top right, then tap 'Install app' or 'Add to Home screen'.\n\n• iPhone / iPad (Safari): Tap the Share button (square with arrow up), then select 'Add to Home Screen'.");
-    }
-    setMobileMenuOpen(false);
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -147,14 +118,6 @@ const Navigation: React.FC<NavigationProps> = ({ mobileMenuOpen, setMobileMenuOp
             >
               Hire Me
             </a>
-
-            <button
-              onClick={handleInstallClick}
-              className="flex items-center justify-center gap-2 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl transition-all border border-slate-200 mt-1"
-            >
-              <Download size={18} className="text-blue-600" />
-              <span>Install App on Mobile</span>
-            </button>
           </div>
           {/* Click outside to close */}
           <div className="flex-1" onClick={() => setMobileMenuOpen(false)} />
